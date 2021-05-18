@@ -5,8 +5,7 @@
 ## SPEC LIST
 
 * 4x Raspberry Pis (You do not need entire kit or 8GB. 4GB is ideal. Cluster cases usually come with fans and heat sinks.)  
-**CanaKit Raspberry Pi 4 8GB Starter Kit - 8GB RAM**  
-https://www.amazon.com/gp/product/B08956GVXN/ref=ppx_yo_dt_b_asin_image_o01_s00?ie=UTF8&psc=1
+**[CanaKit Raspberry Pi 4 8GB Starter Kit - 8GB RAM**](https://www.amazon.com/gp/product/B08956GVXN/ref=ppx_yo_dt_b_asin_image_o01_s00?ie=UTF8&psc=1)  
 
 * 4X SD Cards (SD cards come with the Cannakit along with SD card adapter, but can be purchased separately.)  
 **SAMSUNG 32GB Evo Plus Class 10 Micro SDHC with Adapter - Pack of 5**  
