@@ -5,7 +5,6 @@
 # SPEC LIST
 
 * 4x Raspberry Pis (You do not need entire kit or 8GB. 4GB is ideal. Cluster cases usually come with fans and heat sinks.)  
-*(May need additionnal PoE Hat for Raspberry Pi)  
 **CanaKit Raspberry Pi 4 8GB Starter Kit - 8GB RAM**  
 https://www.amazon.com/gp/product/B08956GVXN/ref=ppx_yo_dt_b_asin_image_o01_s00?ie=UTF8&psc=1
 
@@ -13,7 +12,8 @@ https://www.amazon.com/gp/product/B08956GVXN/ref=ppx_yo_dt_b_asin_image_o01_s00?
 **SAMSUNG 32GB Evo Plus Class 10 Micro SDHC with Adapter - Pack of 5**  
 https://www.amazon.com/Samsung-Class-Micro-Adapter-MB-MC32GA/dp/B07NP96DX5/ref=sr_1_4?dchild=1&keywords=32gb+samsung+micro+sd&qid=1621358686&s=electronics&sr=1-4
 
-* 1x Unmanaged Switch (POE Switch is ideal but more expensive. If using PoE switch, can omit power hub and USB cables)  
+* 1x Unmanaged Switch (POE Switch is ideal but more expensive. If using PoE switch, can omit power hub and USB cables)
+*(May need additionnal PoE Hat for Raspberry Pi)  
 **NETGEAR 5-Port Gigabit Ethernet Unmanaged Switch (GS305)**  
 https://www.amazon.com/gp/product/B07S98YLHM/ref=ppx_yo_dt_b_asin_image_o06_s00?ie=UTF8&psc=1
 
