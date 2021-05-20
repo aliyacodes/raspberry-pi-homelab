@@ -1,5 +1,6 @@
 # raspberry-pi-homelab
 
+### Pieces that make up my Raspberry Pi Homelab, but not yet ready to be treated as one cohesive project.  Files currently work independently of one another.
 
 
 ## Hardware  
