@@ -15,7 +15,7 @@ sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_
 sudo hostnamectl set-hostname sub-pi-03
 
 # Add host list to each machine
-sudo sed -i '2 i 192.168.0.10 sub-pi-03 \
+sudo sed -i '2 i 192.168.0.10 dom-pi \
 192.168.0.11 sub-pi-01 \
 192.168.0.12 sub-pi-02 \
 192.168.0.13 sub-pi-03' /etc/hosts
