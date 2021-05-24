@@ -1,10 +1,7 @@
 # raspberry-pi-homelab
 
-### **NOTE:** This repo contains pieces of code that make up my Raspberry Pi Homelab, but they are not yet ready to be treated as one cohesive project.  Files currently work independently of one another.   
+### **NOTE:** This repo contains pieces of code that make up my Raspberry Pi Homelab, but they are not yet ready to be treated as one cohesive project.  Files currently work independently of one another.  Run line by line for now.  
 
-<br>
-#### As I begin to document this project in a public format, I want to remind myself and others that this should be completely accessible.  It will take me many tries to make that possible, but I will keep changing and adding to its content until it is completely understandable and reproducable by anyone who has never touched this kind of hardware or software before.  
-<br>
 
 
  
