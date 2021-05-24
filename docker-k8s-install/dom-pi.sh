@@ -1,5 +1,5 @@
 #!/bin/bash
-# dom-pi (master node)
+# dom-pi (dom node)
 sudo apt update && sudo apt dist-upgrade -y
 
 sudo chmod 700 .ssh
