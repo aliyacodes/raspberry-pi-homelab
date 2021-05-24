@@ -12,7 +12,7 @@ sudo usermod -aG sudo eros
 sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 
 # Change hostname
-sed -i 's/ubuntu/sub-pi-03/g' /etc/hostname
+sudo hostnamectl set-hostname sub-pi-03
 
 # Add host list to each machine
 sed -i '2 i 192.168.0.10 dom-pi \
