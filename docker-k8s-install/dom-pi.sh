@@ -7,6 +7,7 @@ sudo chmod 600 .ssh/authorized_keys
 
 sudo adduser eros
 sudo usermod -aG sudo eros
+sudo adduser eros root
 
 # Disable password based login
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
@@ -36,6 +37,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo newgrp docker
 
+sudo touch /etc/docker/daemon.json
 sudo echo '{
       "exec-opts": ["native.cgroupdriver=systemd"],
       "log-driver": "json-file",
@@ -43,7 +45,7 @@ sudo echo '{
         "max-size": "100m"
       },
       "storage-driver": "overlay2"
-      }' >> /etc/docker/daemon.json
+      }' > /etc/docker/daemon.json
 
 
 sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
@@ -57,7 +59,8 @@ echo 'Testing Docker "Hello-World"...'
 docker run hello-world
 
 # Kubernetes
-echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' >> /etc/apt/sources.list.d/kubernetes.list
+sudo touch /etc/apt/sources.list.d/kubernetes.list 
+sudo echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo apt update
