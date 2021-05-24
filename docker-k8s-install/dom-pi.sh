@@ -7,7 +7,6 @@ sudo chmod 600 .ssh/authorized_keys
 
 sudo adduser eros
 sudo usermod -aG sudo eros
-sudo adduser eros root
 
 # Disable password based login
 sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
