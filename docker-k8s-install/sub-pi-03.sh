@@ -15,13 +15,13 @@ sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_
 sudo hostnamectl set-hostname sub-pi-03
 
 # Add host list to each machine
-sed -i '2 i 192.168.0.10 dom-pi \
+sudo sed -i '2 i 192.168.0.10 sub-pi-03 \
 192.168.0.11 sub-pi-01 \
 192.168.0.12 sub-pi-02 \
 192.168.0.13 sub-pi-03' /etc/hosts
 
 # Enable cgroups
-sed 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
+sudo sed 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
 
 # ??? sudo systemctl reload ssh
 
