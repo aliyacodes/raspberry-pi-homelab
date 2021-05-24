@@ -43,7 +43,7 @@ echo '{
         "max-size": "100m"
       },
       "storage-driver": "overlay2"
-      }' >> /etc/docker/daemon.json
+      }' > /etc/docker/daemon.json
 
 
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
@@ -57,7 +57,10 @@ echo 'Testing Docker "Hello-World"...'
 docker run hello-world
 
 # Kubernetes
-echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' >> /etc/apt/sources.list.d/kubernetes.list
+sudo touch /etc/apt/sources.list.d/kubernetes.list
+echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo apt update
