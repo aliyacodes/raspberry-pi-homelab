@@ -36,7 +36,9 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-echo '{
+sudo touch /etc/docker/daemon.json
+
+sudo echo '{
       "exec-opts": ["native.cgroupdriver=systemd"],
       "log-driver": "json-file",
       "log-opts": {
@@ -58,7 +60,7 @@ docker run hello-world
 
 # Kubernetes
 sudo touch /etc/apt/sources.list.d/kubernetes.list
-echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
+sudo echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 
