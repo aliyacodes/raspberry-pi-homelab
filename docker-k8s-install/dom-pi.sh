@@ -21,7 +21,7 @@ sed -i '2 i 192.168.0.10 dom-pi \
 192.168.0.13 sub-pi-03' /etc/hosts
 
 # Enable cgroups
-sed 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
+sed -i 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
 
 # ??? sudo systemctl reload ssh
 
