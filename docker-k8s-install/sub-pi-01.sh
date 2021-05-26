@@ -1,6 +1,6 @@
 #!/bin/bash
 # sub-pi-01 (worker node)
-sudo apt update && sudo apt dist-upgrade -y
+sudo apt update && sudo apt upgrade -y
 
 chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
@@ -10,6 +10,8 @@ sudo usermod -aG sudo eros
 
 # Disable password based login
 sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+
+sudo systemctl reload ssh
 
 # Change hostname
 sudo hostnamectl set-hostname sub-pi-01
@@ -36,8 +38,6 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-sudo touch /etc/docker/daemon.json
-
 sudo echo '{
       "exec-opts": ["native.cgroupdriver=systemd"],
       "log-driver": "json-file",
@@ -59,7 +59,6 @@ echo 'Testing Docker "Hello-World"...'
 docker run hello-world
 
 # Kubernetes
-sudo touch /etc/apt/sources.list.d/kubernetes.list
 sudo echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
