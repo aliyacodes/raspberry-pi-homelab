@@ -1,0 +1,41 @@
+# “Docker” command connects to the local docker daemon and can be run from anywhere, 
+# while the “docker-compose” command looks for a specific file in your current directory 
+# called “docker-compose.yml”
+
+# Download the Docker Compose via Recommended method from https://hub.docker.com/r/linuxserver/docker-compose
+# sudo curl -L --fail https://raw.githubusercontent.com/linuxserver/docker-docker-compose/master/run.sh -o /usr/local/bin/docker-compose
+
+# Apply executable permissions to the binary
+# sudo chmod +x /usr/local/bin/docker-compose
+
+# https://fleet.linuxserver.io/image?name=linuxserver/code-server
+# docker image: https://hub.docker.com/r/linuxserver/code-server
+
+# Run: docker pull linuxserver/code-server
+
+
+# code-server 
+---
+version: "2.1"
+services:
+  code-server:
+    image: ghcr.io/linuxserver/code-server
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+      - PASSWORD=password #optional
+      - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD=password #optional
+      - SUDO_PASSWORD_HASH= #optional
+      - PROXY_DOMAIN=code-server.my.domain #optional
+    volumes:
+      - /path/to/appdata/config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+
+# Testing on sub-pi-03
+# Run "docker-compose up -d" on sub-pi-03 after creating docker-compose.yml with above code to start application with Docker Compose
+# Check 192.168.0.13:8443, password is "password"
