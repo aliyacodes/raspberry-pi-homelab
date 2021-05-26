@@ -1,17 +1,18 @@
 #!/bin/bash
 # sub-pi-03 (worker node)
-sudo apt update && sudo apt upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 
-chmod 700 .ssh
-chmod 600 .ssh/authorized_keys
+# COMMENTING OUT FOR SAKE OF ANSIBLE TESTING.  WILL TEST WITH THIS CODE LATER.
+# chmod 700 .ssh
+# chmod 600 .ssh/authorized_keys
 
-sudo adduser eros
-sudo usermod -aG sudo eros
+# sudo adduser eros
+# sudo usermod -aG sudo eros
 
-# Disable password based login
-sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+# # Disable password based login
+# sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 
-sudo systemctl reload ssh
+# sudo systemctl reload ssh
 
 # Change hostname
 sudo hostnamectl set-hostname sub-pi-03
@@ -25,9 +26,7 @@ sudo sed -i '2 i 192.168.0.10 dom-pi \
 # Enable cgroups
 sudo sed 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
 
-# ??? sudo systemctl reload ssh
-
-sudo apt update && sudo apt dist-upgrade -y
+sudo apt-get update
 
 # Docker
 sudo apt-get remove docker docker-engine docker.io containerd runc

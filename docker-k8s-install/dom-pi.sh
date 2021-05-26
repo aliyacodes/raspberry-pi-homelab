@@ -2,16 +2,17 @@
 # dom-pi (dom node)
 sudo apt-get update && sudo apt-get upgrade -y
 
-sudo chmod 700 .ssh
-sudo chmod 600 .ssh/authorized_keys
+# COMMENTING OUT FOR SAKE OF ANSIBLE TESTING.  WILL TEST WITH THIS CODE LATER.
+# sudo chmod 700 .ssh
+# sudo chmod 600 .ssh/authorized_keys
 
-sudo adduser eros
-sudo usermod -aG sudo eros
+# sudo adduser eros
+# sudo usermod -aG sudo eros
 
-# Disable password based login
-sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+# # Disable password based login
+# sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 
-sudo systemctl reload ssh
+# sudo systemctl reload ssh
 
 # Change hostname
 sudo hostnamectl set-hostname dom-pi
@@ -25,7 +26,7 @@ sudo sed -i '2 i 192.168.0.10 dom-pi \
 # Enable cgroups
 sudo sed -i 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
 
-sudo apt update
+sudo apt-get update
 
 # Docker
 sudo apt-get remove docker docker-engine docker.io containerd runc
