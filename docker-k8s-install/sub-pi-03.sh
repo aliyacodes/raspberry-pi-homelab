@@ -71,5 +71,7 @@ sudo apt update
 
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 
+sudo apt install kubeadm kubectl kubelet -y
+
 echo 'You may now join worker nodes to the cluster using \
 "kubeadm join" command with token (do this from worker nodes)'
