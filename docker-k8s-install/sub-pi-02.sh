@@ -75,3 +75,5 @@ sudo apt install kubeadm kubectl kubelet -y
 
 echo 'You may now join worker nodes to the cluster using \
 "kubeadm join" command with token (do this from worker nodes)'
+
+sudo reboot
