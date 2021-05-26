@@ -76,6 +76,8 @@ sudo systemctl restart smbd
 # print out pi's local IP address, if we don't already know it
 hostname -I
 
+
+
 ##### sources #####
 
 # https://pimylifeup.com/raspberry-pi-mount-usb-drive/
