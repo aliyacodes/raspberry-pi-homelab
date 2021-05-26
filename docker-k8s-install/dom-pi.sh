@@ -24,10 +24,10 @@ sudo sed -i '2 i 192.168.0.10 dom-pi \
 192.168.0.13 sub-pi-03' /etc/hosts
 
 # Enable cgroups
-sudo sed -i 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
+sudo sed -i 's/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
 
 sudo systemctl reload ssh
-sudo reboot
+sudo reboot # figure out how to do similar action without logging out
 sudo apt update
 
 # Docker
@@ -39,9 +39,6 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-sudo systemctl start docker
-sudo systemctl enable docker
-
 sudo sh -c "echo '
       {
       \"exec-opts\": [\"native.cgroupdriver=systemd\"],
@@ -52,6 +49,8 @@ sudo sh -c "echo '
       \"storage-driver\": \"overlay2\"
       }' > /etc/docker/daemon.json"
 
+sudo systemctl start docker
+sudo systemctl enable docker
 
 sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 
@@ -87,4 +86,4 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 kubectl get pods --all-namespaces
 
 echo 'You may now join worker nodes to the cluster using \
-"kubeadm join" command with token'
+"kubeadm join" command with token (do this from worker nodes)'
