@@ -8,6 +8,7 @@ blkid /dev/sda1 # take note of UUID and TYPE
 # my output --> /dev/sda1: LABEL_FATBOOT="UNTITLED" LABEL="UNTITLED" UUID="F4A8-11F8" TYPE="vfat"
 
 lsblk
+
 # install two packages to add support for the exFAT filesystem
 sudo apt install exfat-fuse -y 
 
@@ -39,7 +40,7 @@ sudo reboot
 # check to see if the disk has mounted properly
 lsblk
 
-# change permissions (check this later on)
+# change permissions
 find /mnt/usb1/ -type d -exec chmod 755 {} \;
 find /mnt/usb1/ -type f -exec chmod 644 {} \;
 
@@ -74,6 +75,8 @@ sudo systemctl restart smbd
 
 # print out pi's local IP address, if we don't already know it
 hostname -I
+
+
 
 ##### sources #####
 
