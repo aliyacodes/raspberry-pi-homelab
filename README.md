@@ -57,7 +57,7 @@ git config --global credential.helper osxkeychain (Mac)
 2. Ansible
 3. Add pictures and code to document instructions  
 4. Instructions pre script
-
+5. Figure out dynamic DNS and proxy servers
 
 :information_desk_person: [Markdown Guide](https://www.markdownguide.org/basic-syntax/)  
 
