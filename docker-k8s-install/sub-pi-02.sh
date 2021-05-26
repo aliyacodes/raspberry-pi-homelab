@@ -26,6 +26,8 @@ sudo sed -i '2 i 192.168.0.10 dom-pi \
 # Enable cgroups
 sudo sed 's/$/ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory/' /boot/firmware/cmdline.txt
 
+sudo systemctl reload ssh
+sudo reboot
 sudo apt-get update
 
 # Docker
@@ -37,14 +39,18 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-sudo echo '{
-      "exec-opts": ["native.cgroupdriver=systemd"],
-      "log-driver": "json-file",
-      "log-opts": {
-        "max-size": "100m"
+sudo systemctl start docker
+sudo systemctl enable docker
+
+sudo sh -c "echo '
+      {
+      \"exec-opts\": [\"native.cgroupdriver=systemd\"],
+      \"log-driver\": \"json-file\",
+      \"log-opts\": {
+        \"max-size\": \"100m\"
       },
-      "storage-driver": "overlay2"
-      }' > /etc/docker/daemon.json
+      \"storage-driver\": \"overlay2\"
+      }' > /etc/docker/daemon.json"
 
 
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
@@ -58,11 +64,12 @@ echo 'Testing Docker "Hello-World"...'
 docker run hello-world
 
 # Kubernetes
-sudo echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
-
-sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+sudo sh -c "echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list"
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
 sudo apt update
+
+sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 
 sudo apt install kubeadm kubectl kubelet -y
