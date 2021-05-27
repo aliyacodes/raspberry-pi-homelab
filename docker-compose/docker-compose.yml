@@ -11,7 +11,8 @@
 # https://fleet.linuxserver.io/image?name=linuxserver/code-server
 # docker image: https://hub.docker.com/r/linuxserver/code-server
 
-# Run: docker pull linuxserver/code-server
+# *I don't think you even need to do this --> Run: docker pull linuxserver/code-server
+#  Didn't have to with libre office
 
 
 # code-server 
@@ -36,6 +37,23 @@ services:
       - 8443:8443
     restart: unless-stopped
 
+# libre office
+  libreoffice:
+    image: ghcr.io/linuxserver/libreoffice
+    container_name: libreoffice
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - /path/to/config:/config
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
 # Testing on sub-pi-03
+
 # Run "docker-compose up -d" on sub-pi-03 after creating docker-compose.yml with above code to start application with Docker Compose
 # Check 192.168.0.13:8443, password is "password"
+
+# Check 192.168.0.13:3000
