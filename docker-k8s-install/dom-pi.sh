@@ -24,7 +24,7 @@ sudo sed -i '2 i 192.168.0.10 dom-pi \
 192.168.0.13 sub-pi-03' /etc/hosts
 
 # Enable cgroups
-sudo sed -i 's/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
+sudo sed -i 's/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt #append "swapaccount=1"?
 
 sudo systemctl reload ssh
 sudo reboot # figure out how to do similar action without logging out
@@ -89,3 +89,5 @@ echo 'You may now join worker nodes to the cluster using \
 "kubeadm join" command with token (do this from worker nodes)'
 
 sudo reboot
+
+# After joining nodes with token, check status on dom-pi with "kubectl get nodes"

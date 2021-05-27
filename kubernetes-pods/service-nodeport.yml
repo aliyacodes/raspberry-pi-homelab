@@ -1,0 +1,28 @@
+# After creating files pod.yml and service-nodeport.yml, run:
+#   kubectl apply -f pod.yml
+#   kubectl get pods
+#   kubectl apply -f service-nodeport.yml
+#   kubectl get service
+#   Then go to each IP with port 30080, and nginx should appear. 
+#   IPs: 192.168.0.10:30080, 192.168.0.11:30080, 192.168.0.12:30080, 192.168.0.13:30080
+
+--- 
+ apiVersion: v1
+ kind: Service
+ metadata:
+   name: nginx-example
+ spec:
+   type: NodePort
+   ports:
+     - name: http
+       port: 80
+       nodePort: 30080
+       targetPort: nginx-http
+   selector:
+     app: nginx
+     
+# Sources
+# https://www.youtube.com/watch?v=qv3_gLvjITk
+# https://wiki.learnlinux.tv/index.php/Setting_up_a_Raspberry_Pi_Kubernetes_Cluster_with_Ubuntu_20.04
+# https://fleet.linuxserver.io/image?name=linuxserver/nginx
+# https://hub.docker.com/r/linuxserver/nginx
