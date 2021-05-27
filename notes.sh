@@ -251,3 +251,41 @@ sudo sh -c "echo '
 linuxserver/libreoffice
 https://fleet.linuxserver.io/image?name=linuxserver/libreoffice
 https://hub.docker.com/r/linuxserver/libreoffice
+
+---
+version: "2.1"
+services:
+  code-server:
+    image: ghcr.io/linuxserver/code-server
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+      - PASSWORD=password #optional
+      - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD=password #optional
+      - SUDO_PASSWORD_HASH= #optional
+      - PROXY_DOMAIN=code-server.my.domain #optional
+    volumes:
+      - /path/to/appdata/config:/config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+
+  libreoffice:
+    image: ghcr.io/linuxserver/libreoffice
+    container_name: libreoffice
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - /path/to/config:/config
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
+https://codeandunicorns.com/docker-compose-jenkins-persistent-data/
+
+https://gabrieltanner.org/blog/docker-compose
