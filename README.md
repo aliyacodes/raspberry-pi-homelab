@@ -64,6 +64,7 @@ git config --global credential.helper osxkeychain (Mac)
 - [ ] Add pictures and code to document instructions  
 - [ ] Instructions pre script
 - [ ] Figure out dynamic DNS and proxy servers  
+- [ ] Build complete docker image with volumes
 
 ___
 
