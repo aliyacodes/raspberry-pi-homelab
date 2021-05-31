@@ -1,19 +1,24 @@
 # raspberry-pi-homelab
 
-### **NOTE:** This repo contains pieces of code that make up my Raspberry Pi Homelab, but they are not yet ready to be treated as one cohesive project.  Files currently work independently of one another.  Run line by line for now.  
 
+### Ansible automation in progress: https://github.com/aliyacodes/ansible-raspberry-pi-cluster  
+
+<br>
+
+#### **NOTE:** This repo contains pieces of code that make up my Raspberry Pi Homelab, but they are not yet ready to be treated as one cohesive project.  Files currently work independently of one another.  Run line by line for now.  
+
+<br>
 
 
  
-
-<br>  
+ 
 
 # Hardware  
 
 * 4x Raspberry Pis (You do not need entire kit or 8GB. 4GB is ideal. Cluster cases usually come with fans and heat sinks.)  
 [CanaKit Raspberry Pi 4 8GB Starter Kit - 8GB RAM](https://www.amazon.com/gp/product/B08956GVXN/ref=ppx_yo_dt_b_asin_image_o01_s00?ie=UTF8&psc=1)  
 
-* 4X SD Cards (SD cards come with the Cannakit along with SD card adapter/reader, but can be purchased separately.)  
+* 4x SD Cards (SD cards come with the Cannakit along with SD card adapter/reader, but can be purchased separately.)  
 [SAMSUNG 32GB Evo Plus Class 10 Micro SDHC with Adapter - Pack of 5](https://www.amazon.com/Samsung-Class-Micro-Adapter-MB-MC32GA/dp/B07NP96DX5/ref=sr_1_4?dchild=1&keywords=32gb+samsung+micro+sd&qid=1621358686&s=electronics&sr=1-4)  
 
 * 1x Unmanaged Switch (PoE Switch is ideal but more expensive. If using PoE switch, can omit power hub and USB cables)  
@@ -37,7 +42,8 @@
 
 Operating system: [Ubuntu Server 20.04.2 LTS for Raspberry Pi](https://ubuntu.com/download/raspberry-pi)  
 There are multiple ways to download your image and flash your SD card. After downloading and flashing multiple times, I ended up using the link above to download my image.  
-Regular [Ubuntu Server 20.04.2 LTS](https://ubuntu.com/download/server) is just fine.  Not quite sure of the difference between the Raspberry Pi specific image and this one, might be arm64 vs amd64 architechture.  This becomes significant when adding certain repos, such as with Kubernetes.
+
+Regular [Ubuntu Server 20.04.2 LTS](https://ubuntu.com/download/server) is just fine.  Not quite sure of the difference between the Raspberry Pi specific image and this one, might be arm64 vs amd64 architechture.  This becomes significant when adding certain repos, such as with Kubernetes.  
 
 I then used [balenaEtcher](https://www.balena.io/etcher/) to flash my SD card using the MicroSD Reader that came with my Canakit.  
 
@@ -53,11 +59,14 @@ git config --global credential.helper osxkeychain (Mac)
 
 
 # TODO:  
-1. Test automation of docker-k8s-install
-2. Ansible
-3. Add pictures and code to document instructions  
-4. Instructions pre script
-5. Figure out dynamic DNS and proxy servers
+- [x] Test automation of docker-k8s-install
+- [ ] Ansible
+- [ ] Add pictures and code to document instructions  
+- [ ] Instructions pre script
+- [ ] Figure out dynamic DNS and proxy servers  
+- [ ] Build complete docker image with volumes
+
+___
 
 :sassy_woman: [Markdown Guide](https://www.markdownguide.org/basic-syntax/)  
 
