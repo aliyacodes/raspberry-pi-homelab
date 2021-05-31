@@ -59,6 +59,6 @@ git config --global credential.helper osxkeychain (Mac)
 4. Instructions pre script
 5. Figure out dynamic DNS and proxy servers
 
-:information_desk_person: [Markdown Guide](https://www.markdownguide.org/basic-syntax/)  
+:sassy_woman: [Markdown Guide](https://www.markdownguide.org/basic-syntax/)  
 
 
