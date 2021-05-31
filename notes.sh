@@ -289,3 +289,26 @@ services:
 https://codeandunicorns.com/docker-compose-jenkins-persistent-data/
 
 https://gabrieltanner.org/blog/docker-compose
+
+
+
+*** https://turingpi.com/12-amazing-raspberry-pi-cluster-use-cases/
+
+*** https://turingpi.com/case-study-turing-pi-gitlab-ci-ansible/
+
+
+https://gitlab.com/fabian.guschlbauer/k8cluster-blog/-/tree/master/
+https://www.guschlbauer.dev/kubernetes-cluster/
+
+
+
+# Troubleshooting Not Ready nodes after messing around with ansible
+kubectl describe nodes
+systemctl daemon-reload
+# Did a lot of things on dom-pi and sub-pi-01, but ultimately I think that 
+# reissuing the command "sudo kubeadm init --pod-network-cidr=10.244.0.0/16"
+# on dom-pi solved the problem.  Nodes statuses Ready again.
+
+
+
+
