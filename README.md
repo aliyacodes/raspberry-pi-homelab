@@ -1,4 +1,6 @@
-# raspberry-pi-homelab
+# raspberry-pi-homelab  
+
+![rpi](https://github.com/aliyacodes/raspberry-pi-homelab/blob/main/pics/rpicluster.jpg)  
 
 
 ### Ansible automation in progress: https://github.com/aliyacodes/ansible-raspberry-pi-cluster  
