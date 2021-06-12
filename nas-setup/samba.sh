@@ -17,7 +17,7 @@ sudo apt install exfat-utils
 # make a directory where we will mount our drive to
 sudo mkdir -p /mnt/usb1
 
-# give user "ubuntu" owndership of this directory
+# give user "ubuntu" ownership of this directory
 sudo chown -R ubuntu:ubuntu /mnt/usb1
 
 # modify fstab file
