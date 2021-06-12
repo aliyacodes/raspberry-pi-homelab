@@ -53,7 +53,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install samba samba-common-bin -y
 
 # create a shared directory
-mkdir /home/shared
+mkdir /home/ubuntu/shared
 
 # modify smb.conf config file
 sudo vim /etc/samba/smb.conf
